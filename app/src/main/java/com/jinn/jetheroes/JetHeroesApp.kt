@@ -69,7 +69,7 @@ fun JetHeroesApp(
                 stickyHeader {
                     CharacterHeader(initial)
                 }
-                items(HeroesData.heroes, key = {it.id}) { hero ->
+                items(heroes, key = {it.id}) { hero ->
                     HeroListItem(
                         name = hero.name,
                         photoUrl = hero.photoUrl,
@@ -133,15 +133,20 @@ fun CharacterHeader(
     char: Char,
     modifier: Modifier = Modifier
 ) {
-    Text(
-        text = char.toString(),
-        fontWeight = FontWeight.Black,
-        color = Color.White,
-        textAlign = TextAlign.Center,
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(8.dp)
-    )
+    Surface(
+        color = MaterialTheme.colorScheme.primary,
+        modifier = modifier
+    ) {
+        Text(
+            text = char.toString(),
+            fontWeight = FontWeight.Black,
+            color = Color.White,
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(8.dp)
+        )
+    }
 }
 
 @Composable
